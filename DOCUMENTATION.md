@@ -1,10 +1,51 @@
-# Building Detection Application Documentation
+# Building Type Classification System
 
-## Overview
+## 1. Problem Definition
 
-This application is a deep learning-based system for classifying building types from images. It uses a Convolutional Neural Network (CNN) built with TensorFlow and provides a web interface using Streamlit.
+### 1.1 Background and Motivation
+In the field of architecture and urban planning, the ability to automatically identify and classify different types of buildings is crucial for various applications including urban development, real estate analysis, and cultural heritage preservation. Manual classification of buildings is time-consuming and requires domain expertise, creating a need for an automated solution.
 
-## System Architecture
+### 1.2 Problem Statement
+There is a growing need for an intelligent system that can accurately classify building types from images, which can assist in:
+- Urban planning and development
+- Real estate market analysis
+- Cultural heritage documentation
+- Educational purposes for architecture students
+
+## 2. Objectives
+
+### 2.1 General Objective
+To develop a deep learning-based system that can automatically classify different types of buildings from images with high accuracy.
+
+### 2.2 Specific Objectives
+1. To implement a Convolutional Neural Network (CNN) model for building type classification
+2. To create a user-friendly web interface for easy interaction with the model
+3. To achieve high accuracy in classifying different architectural styles
+4. To provide confidence scores for each prediction
+5. To make the system accessible for educational and professional use
+
+## 3. Project Overview
+
+### 3.1 Dataset
+- **Source**: [Specify your dataset source if any]
+- **Total Images**: [Total number of images]
+- **Image Resolution**: 150x150 pixels (resized from original)
+- **Color Space**: RGB
+
+### 3.2 Class Distribution
+The dataset includes the following building types with their respective number of images:
+- [Class 1 Name]: [Number of images] images
+- [Class 2 Name]: [Number of images] images
+- [Class 3 Name]: [Number of images] images
+- [Class 4 Name]: [Number of images] images
+- [Class 5 Name]: [Number of images] images
+
+### 3.3 Data Split
+- **Training Set**: 70% of the data
+- **Validation Set**: 15% of the data
+- **Test Set**: 15% of the data
+
+## 4. System Architecture
 
 ### 1. Model Architecture (`model.py`)
 
@@ -107,7 +148,7 @@ dataset/
 
 2. Model Training:
 
-   - 80-20 train-validation split
+   - 80-20-10 train-test-validation split
    - 10 epochs
    - Batch size of 32
    - Adam optimizer

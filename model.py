@@ -89,9 +89,24 @@ def train_model(data_dir='dataset', model_path='building_classifier.h5'):
     
     # Evaluate on test set
     print("\nEvaluating model on test set...")
-    test_loss, test_accuracy = model.evaluate(X_test, y_test)
-    print(f"Test accuracy: {test_accuracy:.4f}")
-    print(f"Test loss: {test_loss:.4f}")
+    test_loss, test_acc = model.evaluate(X_test, y_test, verbose=2)
+    print(f"\nTest accuracy: {test_acc:.4f}")
+    
+    # Generate predictions
+    y_pred = model.predict(X_test)
+    y_pred_classes = np.argmax(y_pred, axis=1)
+    
+    # Generate and print classification report for test set
+    print("\nTest Set Classification Report:")
+    print("=" * 60)
+    print(classification_report(y_test, y_pred_classes, target_names=class_names, digits=4))
+    
+    # Generate and print training set classification report for comparison
+    print("\nTraining Set Classification Report (for reference):")
+    print("=" * 60)
+    y_train_pred = model.predict(X_train)
+    y_train_pred_classes = np.argmax(y_train_pred, axis=1)
+    print(classification_report(y_train, y_train_pred_classes, target_names=class_names, digits=4))
     
     # Generate predictions for confusion matrix
     y_pred = model.predict(X_test)
